@@ -1,3 +1,5 @@
+#!/bin/bash
+if [ -e /etc/httpd ]; then exit0; fi
 yum -y install httpd mod_ssl                                                                  #install apache and SSL support
 systemctl start httpd                                                                           #start apache server
 sed -i 's/^/#/g' welcome.conf                                                                 #comment out welcome page
