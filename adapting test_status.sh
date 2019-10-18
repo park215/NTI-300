@@ -13,10 +13,10 @@ elif
 status1=$(systemctl status "$myvar" | grep Active | awk '{print $2}')
 inactive="inactive"
 then [[ $status1 == $inactive ]];
-        read -p "the service is off would you like to turn it on?" yn
+        read -p "the service is off would you like to turn it on? " yn
         case $yn in
                 [Yy]* ) systemctl start "$myvar";;
-                [Nn]* ) exit;;
+                [Nn]* ) exit 0;;
                 * ) echo "please answer yes or no";;
         esac
 fi
