@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for i in $@ do:
-
-read -p  "enter package or service you want to install:" myvar
-status2=$( yum list installed | grep "$myvar" | grep -v "tools" | awk -F "." '{print $1}' )
+for i in $@
+do
+status2=$( yum list installed | grep "$myvar" | grep -v "tools" | awk -F "
+." '{print $1}' )
 if [[ $status2 == $myvar ]]; then
         echo "this package or service is already installed"
 elif
@@ -22,5 +22,5 @@ then [[ $status1 == $inactive ]];
                 [Nn]* ) exit 0;;
                 * ) echo "please answer yes or no";;
         esac
-fi
+fi;
 done
