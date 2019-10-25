@@ -1,4 +1,6 @@
 #!/bin/bash
+
+yum clean all
 yum -y install python-pip   
 pip install virtualenv  
 pip install --upgrade pip       
