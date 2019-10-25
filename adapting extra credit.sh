@@ -1,33 +1,7 @@
 #!/bin/bash
 
-if (( $# >= 1 ))
-status2=$( yum list installed | grep "$@" | grep -v "tools" | awk -F "." '{print $1}' )
-then [[ $status2 == $@ ]];
-        for i in "$@"
-        do
-        yum -y install "$@"
-        done
+for i in $@ do:
 
-status1=$(systemctl status "$@" | grep Active | awk '{print $2}')
-inactive="inactive"
-
-
-#how do i make another if within an if statement already
-[[ $status1 == $inactive ]];
-        for i in "$@"
-        do
-        read -p "the service is off would you like to turn it on? " yn
-        case $yn in
-                [Yy]* ) systemctl start "$@";;
-                [Nn]* ) exit 0;;
-                * ) echo "please answer yes or no";;
-        esac
-        exit 0;
-done
-
-fi
-
-if (( $# = 0 ))
 read -p  "enter package or service you want to install:" myvar
 status2=$( yum list installed | grep "$myvar" | grep -v "tools" | awk -F "." '{print $1}' )
 if [[ $status2 == $myvar ]]; then
@@ -49,3 +23,4 @@ then [[ $status1 == $inactive ]];
                 * ) echo "please answer yes or no";;
         esac
 fi
+done
