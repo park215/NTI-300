@@ -27,6 +27,7 @@ done
 
 fi
 
+if (( $# = 0 ))
 read -p  "enter package or service you want to install:" myvar
 status2=$( yum list installed | grep "$myvar" | grep -v "tools" | awk -F "." '{print $1}' )
 if [[ $status2 == $myvar ]]; then
