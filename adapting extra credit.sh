@@ -11,6 +11,8 @@ then [[ $status2 == $@ ]];
 status1=$(systemctl status "$@" | grep Active | awk '{print $2}')
 inactive="inactive"
 
+
+#how do i make another if within an if statement already
 [[ $status1 == $inactive ]];
         for i in "$@"
         do
