@@ -2,11 +2,14 @@
 if [ -e /usr/bin/wget ]; then
 	exit 0;
 fi
-yum -y install wgetwget https://raw.githubusercontent.com/park215/NTI-300/master/packages.txt
+yum -y install wget
+wget https://raw.githubusercontent.com/park215/NTI-300/master/packages.txt
 for packages in $(cat packages.txt); do
 	yum -y install $packages
-	done
+	
 export HOME="/root"
 cd NTI-300/
 git clone https://github.com/park215/NTI-300.git
-git config --global user.name park215git config --global user.email sxs924@gmail.com
+git config --global user.name park215git 
+git config --global user.email sxs924@gmail.com
+done
