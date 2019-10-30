@@ -10,6 +10,6 @@ for packages in $(cat packages.txt); do
 export HOME="/root"
 cd NTI-300/
 git clone https://github.com/park215/NTI-300.git
-git config --global user.name park215git 
+git config --global user.name park215 
 git config --global user.email sxs924@gmail.com
 done
