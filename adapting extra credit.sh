@@ -3,7 +3,7 @@
 
 for i in $( echo "$@" ); do
 
-status2=$( yum list installed | grep "$i@" | grep -v "tools" |  awk -F "." '{print $1}' )
+status2=$( yum list installed | grep "$i" | grep -v "tools" |  awk -F "." '{print $1}' )
 if [[ $status2 == $i ]]; then
         echo "this package or service is already installed"
 elif
