@@ -12,16 +12,15 @@ def setup_install():
   os.mkdir('/opt/django')
   os.chdir('/opt/django')
   os.system('virutalenv django-env')
-  os.system('chown -R django /opt/django') # We're using shell, because the python builtin chown doesn't work as well
+
 
 def django_install():
-  print('activating virtualenv and installing django after pre-requirements have been met') # You must activate the virtualenv shell every time
-                                                                                            # perform a command in order for it to work from python
-  os.system('source /opt/django/django-env/bin/activate && pip install django')  # confirm install and start a django project
+  print('activating virtualenv and installing django after pre-requirements have been met') 
+  os.system('source /opt/django/django-env/bin/activate && pip install django')
   os.chdir('/opt/django')
   os.system('source /opt/django/django-env/bin/activate ' + \
-       '&& django-admin --version ' + \
-       '&& django-admin startproject project1')
+            '&& django-admin startproject project1')
+
   os.system('adduser -M django')
   os.system('chown -R django /opt/django')
   os.system('usermod -L django')
@@ -40,15 +39,15 @@ def django_install():
   new_string = 'ALLOWED_HOSTS = [\'{}\']'.format(output)
   print (new_string)
   print (old_string)
-    
+
   with open('project1/settings.py') as f:
     newText=f.read().replace(old_string, new_string)
   with open('project1/settings.py', "w") as f:
     f.write(newText)
-      
-    
+
+
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
-    
+
 setup_install()
 django_install()
 django_start()
