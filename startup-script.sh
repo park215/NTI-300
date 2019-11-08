@@ -8,7 +8,7 @@ import json
 credentials = GoogleCredentials.get_application_default()
 compute = discovery.build('compute', 'v1', credentials=credentials)
 
-project = 'nti-300-2019'
+project = 'NTI-300'
 zone = 'us-centtral1-a'
 name = 'test3'
 
