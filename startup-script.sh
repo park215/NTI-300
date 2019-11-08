@@ -10,7 +10,7 @@ compute = discovery.build('compute', 'v1', credentials=credentials)
 
 project = 'NTI-300'
 zone = 'us-centtral1-a'
-name = 'test3'
+name = 'test'
 
 def list_instances(compute, project, zone):
 	result = compute.instances().list(project=project, zone=zone).execute()
