@@ -7,7 +7,7 @@ import subprocess
 def local_repo():
     repo="""[local-epel]
 name=NTI300 EPEL
-baseurl=http://34.69.135.230/epel/
+baseurl=http://35.223.7.191/epel/
 gpgcheck=0
 enabled=1"""
     print(repo)
