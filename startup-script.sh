@@ -12,29 +12,6 @@ project = 'loyal-karma-254202'
 zone = 'us-central1-a'
 name = 'test2'
 
-def local_repo():
-    repo="""[local-epel]
-name=NTI300 EPEL
-baseurl=http://34.69.135.230/epel/
-gpgcheck=0
-enabled=1"""
-    print(repo)
-    with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
-      f.write(repo)
-    f.close()
-        
-    on="enabled=1"
-    off="enabled=0"
-
-    with open('/etc/yum.repos.d/epel.repo') as f:
-      dissablerepo=f.read().replace(on, off)
-    f.close()
-
-    with open('/etc/yum.repos.d/epel.repo', "w") as f:
-      f.write(dissablerepo)
-    f.close()
-
-local_repo()
 def list_instances(compute, project, zone):
 	result = compute.instances().list(project=project, zone=zone).execute()
 	return result['items']
